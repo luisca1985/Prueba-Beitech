@@ -103,6 +103,9 @@ Las entidades se encuentran en la siguiente ruta:
 ```
 
 #### Método allBetweenPerCustomer() de la clase PruebaOrderRestController
+El método `allBetweenPerCustomer()` lista las órdenes de un cliente por un rango de fechas.
+
+El detalle del funcionamiento se puede encontrar en la documentación del método.
 ```bash
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
 	@ResponseBody 
@@ -154,6 +157,10 @@ Las entidades se encuentran en la siguiente ruta:
 ```
 
 #### Método newOrder() de la clase PruebaOrderRestController
+El método `newOrder()` crea una órden para un cliente con hasta máximo 5 productos, así sean el mismo producto. Se tiene en cuenta sólo algunos productos están permitidos por cada cliente. 
+
+El detalle del funcionamiento se puede encontrar en la documentación del método.
+
 ```bash
 	@PostMapping("/pruebaorder")
 	/**
