@@ -30,9 +30,9 @@ public class PruebaOrderRestController {
 	@Autowired
 	private CustomerProductRepository customerProductRepo;
 ```
-Los repositorios son una extensión de la interfaz JpaRepository, y se conectan a la tabla de la base de datos, dependiendo de la clase (entidad) que se incluya en su definición. 
+Los repositorios son una extensión de la interfaz `JpaRepository`, y se conectan a la tabla de la base de datos, dependiendo de la clase (entidad) que se incluya en su definición. 
 
-El siguiente es un ejemplo de Repositorio para la clase Order:
+El siguiente es un ejemplo de Repositorio para la clase `Order`:
 ```bash
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
@@ -87,9 +87,22 @@ public class Order{
 	}
 }
 ```
+Las entidades se encuentran en la siguiente ruta:
+
+--src
+    |--main
+           |--java
+	         |--com
+	              |--example
+		               |--prueba
+			               |--model
+					      |--Order.java
+					      :
+					      |-- (Otras entidades)
+```
+
+#### Método allBetweenPerCustomer() de la clase PruebaOrderRestController
 ```bash
-	
-	
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
 	@ResponseBody 
 	/**
@@ -137,7 +150,10 @@ public class Order{
 				} )
 				.collect(Collectors.toList()); // Se crea una lista
 	}
-	
+```
+
+#### Método newOrder() de la clase PruebaOrderRestController
+```bash
 	@PostMapping("/pruebaorder")
 	/**
 	 * Se crea una nueva órden del objeto OrderRequestModel.
