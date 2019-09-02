@@ -50,8 +50,4 @@ List<OrderDetail> allBetweenPerCustomer(
 			} )
 			.collect(Collectors.toList()); // Se crea una lista
 }
-
-/**
-
- */
 ```
