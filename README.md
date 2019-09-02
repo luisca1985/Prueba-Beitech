@@ -9,10 +9,10 @@ Esta clase se puede encontrar en la siguiente ubicación:
     |--main
            |--java
 	         |--com
-	               |--example
-		                |--prueba
-			                |--controller
-					            |--PruebaOrderRestController.java
+	              |--example
+		               |--prueba
+			               |--controller
+					           |--PruebaOrderRestController.java
 ```
 Las propiedades de la clase, contienen los repositorios
 ```bash
