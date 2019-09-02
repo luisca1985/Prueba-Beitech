@@ -32,7 +32,7 @@ public class PruebaOrderRestController {
 ```
 Los repositorios son una extensión de la interfaz JpaRepository, y se conectan a la tabla de la base de datos, dependiendo de la clase (entidad) que se incluya en su definición. 
 
-El siguiente es un ejemplo para la clase Order:
+El siguiente es un ejemplo de Repositorio para la clase Order:
 ```bash
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
