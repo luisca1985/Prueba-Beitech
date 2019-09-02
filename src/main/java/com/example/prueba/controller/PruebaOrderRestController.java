@@ -33,18 +33,29 @@ public class PruebaOrderRestController {
 	private ProductRepository productRepo;
 	@Autowired
 	private CustomerProductRepository customerProductRepo;
-
-	// Raiz
-	// Reemplazamos el llamado GET por el siguiente que tiene en cuenta dos parámetros que indican la fecha
-	// Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd"
-	// El parámetro "from" indica la fecha desde la cual se obtienen las órdenes
-	// El parámetro "to" indica la fecha hasta la cual se obtienen las órdenes
-	// En el caso de no enviar parámatro "from", no se tendría límite inferior
-	// En el caso de no enviar parámetro "to", no se tendría límite superior
-	// En el caso de no enviar ningún no de los parámetros "from" o "to" se muestran todas la órdenes
+	
+   /**
+ 	* Raiz
+	* Reemplazamos el llamado GET por el siguiente que tiene en cuenta dos parámetros que indican la fecha
+	* Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd"
+	* El parámetro "from" indica la fecha desde la cual se obtienen las órdenes
+	* El parámetro "to" indica la fecha hasta la cual se obtienen las órdenes
+	* En el caso de no enviar parámatro "from", no se tendría límite inferior
+	* En el caso de no enviar parámetro "to", no se tendría límite superior
+	* En el caso de no enviar ningún no de los parámetros "from" o "to" se muestran todas la órdenes
+	*/
+	
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
     @ResponseBody 
-    // Se crea una lista con todas las órdenes a partir de una fecha "from" y hasta una fecha "to"
+
+    /**
+     * Se crea una lista con todas las órdenes a partir del cliente, y un intervalo de fechas.
+     * Si no se envían parámetros el listado no filtra las órdenes (envía el listado completo).
+     * @param customerId El parámetro customerId indica el ID del cliente que generó los reportes.
+     * @param fromDate El parámetro fromDate indica la fecha desde la cuál se generará el reporte de órdenes.
+     * @param toDate El parámetro toDate indica la fecha hasta la cuál se generará el reporte de órdenes.
+     * @return El método retorna la lista de detalles de órden 
+     */
     List<OrderDetail> allBetweenPerCutomer(
     		// Se indica el nómbre del parámetro
     		@RequestParam
@@ -82,25 +93,32 @@ public class PruebaOrderRestController {
 				.collect(Collectors.toList()); // Se crea una lista
     }
 	
+	/**
 
-	// Se envía el customerID tipo "int"
-	// Se envía la deliveryAddress tipo "String"
-	// Envía una lista de objetos "products" con
-	// - productId tipo "int"
-	// - quantity tipo "int"
+	 */
 	
-	// DE LA FORMA
-	
-	// {"customerId": cliente (int), "deliveryAddress": direccion (String), "products": [
-	//	{productId: producto1 (int), "quantity": cantidad1 (int)},
-	//	{productId: producto2 (int), "quantity": cantidad2 (int)},
-	//	...
-	//	{productId: productoN (int), "quantity": cantidad3 ()}
-	// ]
-	// }
-	
-	
-	@PostMapping("/pruebaorder")
+		@PostMapping("/pruebaorder")
+		/**
+		 * Se crea una nueva órden del objeto OrderRequestModel.
+		 * Se envía el customerID tipo "int"
+		 * Se envía la deliveryAddress tipo "String"
+		 * Envía una lista de objetos "products" con
+		 * - productId tipo "int"
+		 * - quantity tipo "int"
+		 *
+		 * DE LA FORMA
+		 *
+		 * {"customerId": cliente (int), "deliveryAddress": direccion (String), "products": [
+		 *	{productId: producto1 (int), "quantity": cantidad1 (int)},
+		 *	{productId: producto2 (int), "quantity": cantidad2 (int)},
+		 *	...
+		 *	{productId: productoN (int), "quantity": cantidad3 ()}
+		 * ]
+		 * }
+		 * 
+		 * @param newOrderReq El parámetro newOrderReq contiene los valores de la nueva órden.
+		 * @return Se retorna la lista con el detalle de la nueva órden, por cada producto.
+		 */
 	List<OrderDetail> newOrder(@RequestBody OrderRequestModel newOrderReq) {
 		// Se crea la "order" para el cliente indicado
 		// Se crea "customer" para la orden
