@@ -3,8 +3,18 @@ Este proyecto contiene los entregables de la prueba indicada por Beitech
 ## Documentación de los método del API REST
 ### Clase PruebaOrderRestController
 Esta clase, contiene los métodos API REST requeridos por la prueba de Beitech.
-
-
+Esta clase se puede encontrar en la siguiente ubicación:
+```bash
+--src
+    |--main
+           |--java
+	         |--com
+	               |--example
+		                |--prueba
+			                |--controller
+					            |--PruebaOrderRestController.java
+```
+Las propiedades de la clase, contienen los repositorios
 ```bash
 @RestController
 public class PruebaOrderRestController {
@@ -18,6 +28,10 @@ public class PruebaOrderRestController {
 	private ProductRepository productRepo;
 	@Autowired
 	private CustomerProductRepository customerProductRepo;
+```
+
+
+```bash
 	
 	
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
