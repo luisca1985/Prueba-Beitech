@@ -2,30 +2,10 @@
 Este proyecto contiene los entregables de la prueba indicada por Beitech
 ## Documentación de los método del API REST
 ### Clase PruebaOrderRestController
+Esta clase, contiene los métodos API REST requeridos por la prueba de Beitech.
+
+
 ```bash
-package com.example.prueba.controller;
-
-import com.example.prueba.model.*;
-import com.example.prueba.repo.*;
-import com.example.prueba.reqmodel.OrderRequestModel;
-import com.example.prueba.reqmodel.ProductQuantityRequestModel;
-import com.example.prueba.exception.*;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 @RestController
 public class PruebaOrderRestController {
 	@Autowired
@@ -41,31 +21,31 @@ public class PruebaOrderRestController {
 	
 	
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
-    @ResponseBody 
-    /**
-     * Se crea una lista con todas las órdenes a partir del cliente, y un intervalo de fechas.
-     * Si no se envían parámetros el listado no filtra las órdenes (envía el listado completo).
-     * Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd".
-     * @param customerId El parámetro customerId indica el ID del cliente que generó los reportes.
-     * @param fromDate El parámetro fromDate indica la fecha desde la cuál se generará el reporte de órdenes.
-     * @param toDate El parámetro toDate indica la fecha hasta la cuál se generará el reporte de órdenes.
-     * @return El método retorna la lista de detalles de órden 
-     */
-    List<OrderDetail> allBetweenPerCustomer(
-    		// Se indica el nómbre del parámetro
-    		@RequestParam
-    		(value = "id", required = false)
-    		Integer customerId,
-    		// Se indica el nómbre del parámetro
-    		@RequestParam
-    		(value = "from", required = false) 
-    		// Se indica el formato de la fecha
-    		@DateTimeFormat
-    		(pattern="yyyy-MM-dd") Date fromDate, 
-    		@RequestParam
-    		(value = "to", required = false) 
-    		@DateTimeFormat
-    		(pattern="yyyy-MM-dd") Date toDate) {
+	@ResponseBody 
+	/**
+	* Se crea una lista con todas las órdenes a partir del cliente, y un intervalo de fechas.
+	* Si no se envían parámetros el listado no filtra las órdenes (envía el listado completo).
+	* Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd".
+	* @param customerId El parámetro customerId indica el ID del cliente que generó los reportes.
+	* @param fromDate El parámetro fromDate indica la fecha desde la cuál se generará el reporte de órdenes.
+	* @param toDate El parámetro toDate indica la fecha hasta la cuál se generará el reporte de órdenes.
+	* @return El método retorna la lista de detalles de órden 
+	*/
+	List<OrderDetail> allBetweenPerCustomer(
+		// Se indica el nómbre del parámetro
+		@RequestParam
+		(value = "id", required = false)
+		Integer customerId,
+		// Se indica el nómbre del parámetro
+		@RequestParam
+		(value = "from", required = false) 
+		// Se indica el formato de la fecha
+		@DateTimeFormat
+		(pattern="yyyy-MM-dd") Date fromDate, 
+		@RequestParam
+		(value = "to", required = false) 
+		@DateTimeFormat
+		(pattern="yyyy-MM-dd") Date toDate) {
 		//Se obtienen todas la fechas
 		return orderDetailRepo.findAll()
 				.stream() // se crea un stream
@@ -86,30 +66,30 @@ public class PruebaOrderRestController {
 							&& (toDate == null ? true : crtnDt.compareTo(toDate) <= 0); 
 				} )
 				.collect(Collectors.toList()); // Se crea una lista
-    }
+	}
 	
-		@PostMapping("/pruebaorder")
-		/**
-		 * Se crea una nueva órden del objeto OrderRequestModel.
-		 * Se envía el customerID tipo "int"
-		 * Se envía la deliveryAddress tipo "String"
-		 * Envía una lista de objetos "products" con
-		 * - productId tipo "int"
-		 * - quantity tipo "int"
-		 *
-		 * DE LA FORMA
-		 *
-		 * {"customerId": cliente (int), "deliveryAddress": direccion (String), "products": [
-		 *	{productId: producto1 (int), "quantity": cantidad1 (int)},
-		 *	{productId: producto2 (int), "quantity": cantidad2 (int)},
-		 *	...
-		 *	{productId: productoN (int), "quantity": cantidad3 ()}
-		 * ]
-		 * }
-		 * 
-		 * @param newOrderReq El parámetro newOrderReq contiene los valores de la nueva órden.
-		 * @return Se retorna la lista con el detalle de la nueva órden, por cada producto.
-		 */
+	@PostMapping("/pruebaorder")
+	/**
+	 * Se crea una nueva órden del objeto OrderRequestModel.
+	 * Se envía el customerID tipo "int"
+	 * Se envía la deliveryAddress tipo "String"
+	 * Envía una lista de objetos "products" con
+	 * - productId tipo "int"
+	 * - quantity tipo "int"
+	 *
+	 * DE LA FORMA
+	 *
+	 * {"customerId": cliente (int), "deliveryAddress": direccion (String), "products": [
+	 *	{productId: producto1 (int), "quantity": cantidad1 (int)},
+	 *	{productId: producto2 (int), "quantity": cantidad2 (int)},
+	 *	...
+	 *	{productId: productoN (int), "quantity": cantidad3 ()}
+	 * ]
+	 * }
+	 * 
+	 * @param newOrderReq El parámetro newOrderReq contiene los valores de la nueva órden.
+	 * @return Se retorna la lista con el detalle de la nueva órden, por cada producto.
+	 */
 	List<OrderDetail> newOrder(@RequestBody OrderRequestModel newOrderReq) {
 		// Se crea la "order" para el cliente indicado
 		// Se crea "customer" para la orden
