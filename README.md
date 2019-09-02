@@ -53,6 +53,7 @@ Los repositorios se encuentran en la siguiente ruta:
 					     |-- (Otros repositorios)
 ```
 
+##### Entidades de un repositorio
 Cada repositorio corresponde a una entidad, donde cada entidad se define como una clase.
 
 El siguiente es un ejemplo de la entidad `orden`.
