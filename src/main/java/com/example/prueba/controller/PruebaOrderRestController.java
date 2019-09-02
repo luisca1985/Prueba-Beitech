@@ -33,24 +33,13 @@ public class PruebaOrderRestController {
 	private ProductRepository productRepo;
 	@Autowired
 	private CustomerProductRepository customerProductRepo;
-	
-   /**
- 	* Raiz
-	* Reemplazamos el llamado GET por el siguiente que tiene en cuenta dos parámetros que indican la fecha
-	* Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd"
-	* El parámetro "from" indica la fecha desde la cual se obtienen las órdenes
-	* El parámetro "to" indica la fecha hasta la cual se obtienen las órdenes
-	* En el caso de no enviar parámatro "from", no se tendría límite inferior
-	* En el caso de no enviar parámetro "to", no se tendría límite superior
-	* En el caso de no enviar ningún no de los parámetros "from" o "to" se muestran todas la órdenes
-	*/
-	
+
 	@RequestMapping(value="/pruebaorder" , method=RequestMethod.GET)
     @ResponseBody 
-
     /**
      * Se crea una lista con todas las órdenes a partir del cliente, y un intervalo de fechas.
      * Si no se envían parámetros el listado no filtra las órdenes (envía el listado completo).
+     * Los dos parámetros deben tener el siguiente formato de fecha "yyyy-MM-dd".
      * @param customerId El parámetro customerId indica el ID del cliente que generó los reportes.
      * @param fromDate El parámetro fromDate indica la fecha desde la cuál se generará el reporte de órdenes.
      * @param toDate El parámetro toDate indica la fecha hasta la cuál se generará el reporte de órdenes.
