@@ -3,7 +3,7 @@ Este proyecto contiene los entregables de la prueba indicada por Beitech
 ## Documentación de los método del API REST
 ### Clase PruebaOrderRestController
 Esta clase, contiene los métodos API REST requeridos por la prueba de Beitech.
-Esta clase se puede encontrar en la siguiente ubicación:
+Esta clase se puede encontrar en la siguiente ruta:
 ```bash
 --src
     |--main
@@ -14,7 +14,8 @@ Esta clase se puede encontrar en la siguiente ubicación:
 			               |--controller
 					           |--PruebaOrderRestController.java
 ```
-Las propiedades de la clase, contienen los repositorios
+#### Propiedades de la clase PruebaOrderRestController (repositorios)
+Las propiedades de la clase, contienen los repositorios de cada uno modelos (clases) de la aplicación, y permiten generar la conexión con la base de datos.
 ```bash
 @RestController
 public class PruebaOrderRestController {
@@ -29,7 +30,28 @@ public class PruebaOrderRestController {
 	@Autowired
 	private CustomerProductRepository customerProductRepo;
 ```
+Los repositorios son una extensión de la interfaz JpaRepository, y se conectan a la tabla de la base de datos, dependiendo de la clase (entidad) que se incluya en su definición. 
+El siguiente es un ejemplo para la clase Order:
+```bash
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 
+}
+```
+Los repositorios se encuentran en la siguiente ruta:
+
+```bash
+--src
+    |--main
+           |--java
+	         |--com
+	              |--example
+		               |--prueba
+			               |--repo
+					     |--OrderRepository.java
+					     :
+					     |-- (Otros repositorios)
+```
+Cada repositorio corresponde a una entidad,
 
 ```bash
 	
