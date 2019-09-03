@@ -1,5 +1,6 @@
 # Prueba Beitech
 Este proyecto contiene los entregables de la prueba indicada por Beitech
+
 ## Documentación de los método del API REST
 ### Clase PruebaOrderRestController
 Esta clase, contiene los métodos API REST requeridos por la prueba de Beitech.
@@ -276,3 +277,15 @@ El detalle del funcionamiento se puede encontrar en la documentación del métod
 ```
 ## Diagrama de Clases
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/classDiagram.png)
+
+## Servicio web REST
+### POST
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post1.png)
+
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post2.png)
+### GET
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get1.png)
+
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get2.png)
+## FrontEnd
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/app.png)
