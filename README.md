@@ -274,5 +274,5 @@ El detalle del funcionamiento se puede encontrar en la documentación del métod
 	
 }
 ```
-
-![imagen](https://raw.githubusercontent.com/parzibyte/WaterPy/master/assets/ImagenV1.png)
+## Diagrama de Clases
+![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/classDiagram.png)
