@@ -45,7 +45,7 @@ public class PruebaOrderRestController {
      * @param toDate El parámetro toDate indica la fecha hasta la cuál se generará el reporte de órdenes.
      * @return El método retorna la lista de detalles de órden 
      */
-    List<OrderDetail> allBetweenPerCutomer(
+    List<OrderDetail> allBetweenPerCustomer(
     		// Se indica el nómbre del parámetro
     		@RequestParam
     		(value = "id", required = false)
