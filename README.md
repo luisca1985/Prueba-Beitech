@@ -276,16 +276,46 @@ El detalle del funcionamiento se puede encontrar en la documentación del métod
 }
 ```
 ## Diagrama de Clases
+
+Figura 1. Diagrama de Clases
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/classDiagram.png)
 
-## Servicio web REST
-### POST
+## Servicios web REST (BackEnd)
+Para ingresar a los servicios web REST se debe ingresar la dirección URL `http://<hostname>:8080/pruebaorder`.
+
+### Crear una órden (POST)
+
+Para crear una órden se debe enviar un Request POST cuyo cuerpo tenga la forma del objeto JSON:
+```bash
+{ 
+  "customerId": id_del_cliente_1 , 
+  "deliveryAddress": "... alguna direccion ...", 
+  "products": [ 
+		{ 
+		"productId" : id_del_producto_1, 
+		"quantity": cantidad_del_producto_1
+		}, 
+		{ 
+		"productId" : 13, 
+		"quantity": 1
+		}
+	      ]
+}
+```
+
+**Ejemplo. 1**
+
+Figura. 2.
+
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post1.png)
 
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post2.png)
-### GET
+### Listar órdenes (GET)
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get1.png)
 
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get2.png)
-## FrontEnd
+## Aplicación AngularJS (FrontEnd)
+
+Para ingresar a la aplicación HTML se debe ingresar la dirección URL `http://<hostname>:8080/`.
+
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/app.png)
