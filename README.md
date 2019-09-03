@@ -285,7 +285,8 @@ Para ingresar a los servicios web REST se debe ingresar la dirección URL `http:
 
 ### Crear una órden (POST)
 
-Para crear una órden se debe enviar un Request POST cuyo cuerpo tenga la forma del objeto JSON:
+Para crear una órden se debe enviar un POST Request cuyo cuerpo tenga la forma del objeto JSON:
+
 ```bash
 { 
   "customerId": id_del_cliente_1 , 
@@ -303,19 +304,32 @@ Para crear una órden se debe enviar un Request POST cuyo cuerpo tenga la forma 
 }
 ```
 
-**Ejemplo. 1**
+**Ejemplo 1**
 
-Figura. 2.
-
+Figura 2. POST Request
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post1.png)
 
+Figura 3. Response
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/post2.png)
+
 ### Listar órdenes (GET)
+
+Para crear una órden se debe enviar un GET Request cuyos parámetros sean los siguientes:
+
+```bash
+localhost:8080/pruebaorder?from=<fecha desde>&to=<fecha hasta>&id=<id del cliente>
+```
+**Ejemplo 2**
+
+Figura 4. GET Request
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get1.png)
 
+Figura 5. Response
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/get2.png)
+
 ## Aplicación AngularJS (FrontEnd)
 
 Para ingresar a la aplicación HTML se debe ingresar la dirección URL `http://<hostname>:8080/`.
 
+Figura 6. Aplicación en AngularJS
 ![imagen](https://raw.githubusercontent.com/luisca1985/prueba-beitech/master/assets/app.png)
