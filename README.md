@@ -274,3 +274,5 @@ El detalle del funcionamiento se puede encontrar en la documentación del métod
 	
 }
 ```
+
+![alt text](https://raw.githubusercontent.com/luisca1985/prueba-beitech/prueba.png)
